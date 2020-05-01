@@ -17,7 +17,8 @@
     "pretest": "npm run lint -- --cache",
     "test": "jest",
     "ci": "npm test -- --coverage --verbose && npm run integration",
-    "prepublish": "npm run build"
+    "prepublish": "yarn run snyk-protect && npm run build",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -64,7 +65,8 @@
     "write-file-atomic": "^2.1.0",
     "write-json-file": "^2.1.0",
     "write-pkg": "^3.0.1",
-    "yargs": "^8.0.1"
+    "yargs": "^8.0.1",
+    "snyk": "^1.316.1"
   },
   "bin": {
     "lerna": "./bin/lerna.js"
@@ -108,5 +110,6 @@
   },
   "engines": {
     "node": ">= 4"
-  }
+  },
+  "snyk": true
 }
